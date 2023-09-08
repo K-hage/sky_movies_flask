@@ -34,4 +34,3 @@ class FavoritesService(BaseService):
 
         data = self.dao.get_favorite(user_id, movie_id)
         self.dao.delete(data.id)
-

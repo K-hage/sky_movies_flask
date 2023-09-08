@@ -25,13 +25,6 @@ class UsersService(BaseService):
 
         return self.dao.get_email(email)
 
-    def check_is_dict(self, data):
-        """
-        Проверка: являются ли данные словарем
-        """
-
-        return self.dao.check_is_dict(data)
-
     def create(self, data):
         """
         Метод создания пользователя
@@ -58,7 +51,7 @@ class UsersService(BaseService):
         user = self.get_email(email)
         old_pass = passwords.get('old_password', None)
         new_pass = passwords.get('new_password', None)
-        if None is not [old_pass, new_pass] and self.compare_passwords(user.password, old_pass):
+        if None not in [old_pass, new_pass] and self.compare_passwords(user.password, old_pass):
             self.dao.update_info({'password': self.get_hash(new_pass)}, email)
 
     def get_hash(self, password):

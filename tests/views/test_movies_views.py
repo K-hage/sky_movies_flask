@@ -7,14 +7,14 @@ class TestMoviesView:
 
     @pytest.fixture
     def director(self, db):
-        obj = Director(id=1, name="director")
+        obj = Director(name="director")
         db.session.add(obj)
         db.session.commit()
         return obj
 
     @pytest.fixture
     def genre(self, db):
-        obj = Genre(id=1, name="genre")
+        obj = Genre(name="genre")
         db.session.add(obj)
         db.session.commit()
         return obj

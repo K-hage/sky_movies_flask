@@ -24,3 +24,10 @@ class BaseService:
         """
 
         return self.dao.get_all(page=page)
+
+    def check_is_dict(self, data):
+        """
+        Проверка: являются ли данные словарем
+        """
+
+        return self.dao.check_is_dict(data)
